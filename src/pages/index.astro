@@ -12,14 +12,49 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header />
+		
+		<h2 class="absolute text-[20rem] bottom-0 left-0"> 
+			Demari
+		</h2>
+		*** Drag anything around on this page!
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
+			<h1>🧑‍🚀 Hello!</h1>
 			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+				My name is  
 			</p>
+
+
+			<div id="pail" class="border p-24 rounded-md">
+				Pail
+			</div>
 	
 		</main>
 	</body>
 </html>
+
+
+<script >
+	import { gsap } from "gsap";
+    
+	import { Draggable } from "gsap/Draggable";
+	console.log(gsap.version);
+	gsap.registerPlugin(Draggable);
+
+	Draggable.create("h1");
+	Draggable.create("p");
+
+	setTimeout(() => {
+		gsap.to("h1", { x: Math.random(), y: Math.random(), duration: 2 });
+	}, 1000);
+
+	setTimeout(() => {
+		gsap.to("p", { x: -100, y: -100, duration: 2 });
+		gsap.to("#pail", { borderColor: "red", duration: 2 })
+	}, 2000);
+
+
+
+
+
+
+</script>
